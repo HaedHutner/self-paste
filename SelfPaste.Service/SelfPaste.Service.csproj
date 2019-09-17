@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SelfPaste.Data\SelfPaste.Data.csproj" />
+    <ProjectReference Include="..\SelfPaste.Persistence\SelfPaste.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
