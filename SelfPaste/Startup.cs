@@ -36,7 +36,7 @@ namespace SelfPaste
 
             services.AddDbContext<PasteDbContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer(connectionString, b => b.MigrationsAssembly("SelfPaste"));
             });
 
             services.AddAutoMapper(typeof(PastesProfile));

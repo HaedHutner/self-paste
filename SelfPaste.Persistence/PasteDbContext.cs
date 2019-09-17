@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using SelfPaste.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,12 @@ namespace SelfPaste.Persistence
             : base(options)
         {
             Pastes = Set<Paste>();
+        }
+        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Paste>().HasKey(p => new { p.Id, p.FriendlyId });
+            modelBuilder.Entity<Paste>().Property(p => p.Id).ValueGeneratedOnAdd();
         }
     }
 }
