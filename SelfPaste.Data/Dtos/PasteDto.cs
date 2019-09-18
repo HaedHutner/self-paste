@@ -6,7 +6,7 @@ namespace SelfPaste.Data.Dtos
 {
     public class PasteDto
     {
-        public string Id { get; set; }
+        public string FriendlyId { get; set; }
 
         public string Content { get; set; }
     }

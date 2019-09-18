@@ -16,7 +16,7 @@ namespace SelfPaste.Persistence
 
         public async Task<Paste> SavePasteAsync(Paste paste)
         {
-            paste = context.Pastes.Add(paste).Entity;
+            paste = context.Paste.Add(paste).Entity;
             context.SaveChanges();
 
             return paste;
@@ -24,7 +24,7 @@ namespace SelfPaste.Persistence
 
         public async Task<Paste> FindPasteByFriendlyIdAsync(string friendlyId)
         {
-            return context.Pastes.Where(paste => paste.FriendlyId.Equals(friendlyId)).Single();
+            return context.Paste.Where(paste => paste.FriendlyId.Equals(friendlyId)).SingleOrDefault();
         }
     }
 }

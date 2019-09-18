@@ -8,7 +8,7 @@ namespace SelfPaste.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Pastes",
+                name: "Paste",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
@@ -18,14 +18,14 @@ namespace SelfPaste.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pastes", x => new { x.Id, x.FriendlyId });
+                    table.PrimaryKey("PK_Paste", x => new { x.Id, x.FriendlyId });
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Pastes");
+                name: "Paste");
         }
     }
 }

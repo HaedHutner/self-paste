@@ -9,7 +9,7 @@ using SelfPaste.Persistence;
 namespace SelfPaste.Migrations
 {
     [DbContext(typeof(PasteDbContext))]
-    [Migration("20190917155438_InitialMigration")]
+    [Migration("20190918120721_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,7 +32,7 @@ namespace SelfPaste.Migrations
 
                     b.HasKey("Id", "FriendlyId");
 
-                    b.ToTable("Pastes");
+                    b.ToTable("Paste");
                 });
 #pragma warning restore 612, 618
         }

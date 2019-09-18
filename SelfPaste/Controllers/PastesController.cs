@@ -11,7 +11,7 @@ using SelfPaste.Service;
 
 namespace SelfPaste.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/pastes")]
     [ApiController]
     public class PastesController : ControllerBase
     {
@@ -40,7 +40,11 @@ namespace SelfPaste.Controllers
         {
             var paste = await pasteService.CreatePasteAsync(value.Content);
 
-            return await Task.Run<IActionResult>(() => CreatedAtRoute("GetAsync", new { id = paste.Id }, paste));
+            return await Task.Run<IActionResult>(() => CreatedAtAction(
+                actionName:  "GetAsync", 
+                routeValues: new { friendlyId = paste.FriendlyId },
+                value:       mapper.Map<PasteDto>(paste))
+            );
         }
 
     }

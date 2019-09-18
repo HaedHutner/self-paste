@@ -9,12 +9,11 @@ namespace SelfPaste.Persistence
 {
     public class PasteDbContext : DbContext
     {
-        public DbSet<Paste> Pastes { get; private set; }
+        public DbSet<Paste> Paste { get; private set; }
 
         public PasteDbContext(DbContextOptions<PasteDbContext> options)
             : base(options)
         {
-            Pastes = Set<Paste>();
         }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)

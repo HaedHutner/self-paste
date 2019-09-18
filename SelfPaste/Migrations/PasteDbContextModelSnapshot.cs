@@ -30,7 +30,7 @@ namespace SelfPaste.Migrations
 
                     b.HasKey("Id", "FriendlyId");
 
-                    b.ToTable("Pastes");
+                    b.ToTable("Paste");
                 });
 #pragma warning restore 612, 618
         }
