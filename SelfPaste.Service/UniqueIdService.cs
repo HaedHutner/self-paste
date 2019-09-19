@@ -21,17 +21,17 @@ namespace SelfPaste.Service
 
             if (_lastGenerated == 99_999)
             {
-                throw new Exception("Cannot generate more than 100,000 unique ids per 100ms.");
+                throw new Exception("Cannot generate more than 100,000 unique ids per 1ms.");
             }
 
             long id = _lastTimestamp * 100_000 + (++_lastGenerated);
 
-            return System.Convert.ToBase64String(BitConverter.GetBytes(id)).Replace('+', '-').Replace('/', '_');
+            return Convert.ToBase64String(BitConverter.GetBytes(id)).Replace('+', '-').Replace('/', '_');
         }
 
         private static long GetCurrentUnixTimestamp()
         {
-            return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() / 100;
+            return DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
         }
     }
 }
